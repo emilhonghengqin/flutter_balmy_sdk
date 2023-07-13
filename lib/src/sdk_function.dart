@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import 'dart:convert';
 import 'balmy_sdk.dart';
@@ -6,9 +6,10 @@ import 'balmy_sdk.dart';
 class SDKfunc {
   static Future<String> getChatId() async {
     try {
-      final chatId = await ApiService.getChatId();
-      var jsonData = jsonDecode(chatId);
-      return jsonData['chat_id'] as String;
+      final getChatId = await ApiService.getChatId();
+      var jsonData = jsonDecode(getChatId);
+      String chatId = jsonData['chat_id'] as String;
+      return chatId;
     } catch (e) {
       throw Exception('Failed to get chat ID : $e');
     }
@@ -18,7 +19,7 @@ class SDKfunc {
     try {
       final chatResponse = await ApiService.getChatResponse();
       var jsonData = jsonDecode(chatResponse);
-      return jsonData['response'] as String;
+      return jsonData['response'];
     } catch (e) {
       throw Exception('Failed to get chat response : $e');
     }
@@ -28,7 +29,7 @@ class SDKfunc {
     try {
       final endChat = await ApiService.endChat();
       var jsonData = jsonDecode(endChat);
-      return jsonData['status'] as String;
+      return jsonData['status'];
     } catch (e) {
       throw Exception('Failed to end chat : $e');
     }
