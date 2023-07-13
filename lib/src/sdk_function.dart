@@ -8,7 +8,7 @@ class SDKfunc {
     try {
       final chatId = await ApiService.getChatId();
       var jsonData = jsonDecode(chatId);
-      return jsonData['chat_id'];
+      return jsonData['chat_id'] as String;
     } catch (e) {
       throw Exception('Failed to get chat ID : $e');
     }
@@ -18,7 +18,7 @@ class SDKfunc {
     try {
       final chatResponse = await ApiService.getChatResponse();
       var jsonData = jsonDecode(chatResponse);
-      return jsonData['response'];
+      return jsonData['response'] as String;
     } catch (e) {
       throw Exception('Failed to get chat response : $e');
     }
@@ -28,7 +28,7 @@ class SDKfunc {
     try {
       final endChat = await ApiService.endChat();
       var jsonData = jsonDecode(endChat);
-      return jsonData['status'];
+      return jsonData['status'] as String;
     } catch (e) {
       throw Exception('Failed to end chat : $e');
     }
