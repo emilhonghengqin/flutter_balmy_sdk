@@ -1,36 +1,61 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 // ignore: non_constant_identifier_names
 String domain_name = 'tester.balmy.dev';
 
 class ApiService {
-  static Future<String> getChatId() async {
+  static Future<Map<String, dynamic>> getChatId() async {
     var url = Uri.https(domain_name, '/api/getChatId');
-    final response = await http.post(url);
-    if (response.statusCode == 200) {
-      return response.body;
-    } else {
-      throw Exception('Failed to get chat ID');
-    }
+    Map data = {"api_id": 101, "api_secret": "malaysia"};
+    final http.Response response = await http.post(url,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(data));
+    Map<String, dynamic> jsonData = jsonDecode(response.body);
+    return jsonData;
   }
 
-  static Future<String> getChatResponse() async {
+  static Future<Map<String, dynamic>> getChatResponse() async {
     var url = Uri.https(domain_name, '/api/getChatResponse');
-    final response = await http.post(url);
-    if (response.statusCode == 200) {
-      return response.body;
-    } else {
-      throw Exception('Failed to get chat response');
-    }
+    Map data = {
+      "api_id": 101,
+      "api_secret": "malaysia",
+      "chat_id": 999,
+      "message": "Hello"
+    };
+    final http.Response response = await http.post(url,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(data));
+    Map<String, dynamic> jsonData = jsonDecode(response.body);
+    return jsonData;
   }
 
-  static Future<String> endChat() async {
+  static Future<Map<String, dynamic>> endChat() async {
     var url = Uri.https(domain_name, '/api/endChat');
-    final response = await http.post(url);
-    if (response.statusCode == 200) {
-      return response.body;
-    } else {
-      throw Exception('Failed to end chat');
-    }
+    Map data = {"api_id": 101, "api_secret": "malaysia", "chat_id": 999};
+    final http.Response response = await http.post(url,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(data));
+    Map<String, dynamic> jsonData = jsonDecode(response.body);
+    return jsonData;
   }
+
+  // Future<String> endChat() async {
+  //   var url = Uri.https(domain_name, '/api/endChat');
+  //   final response = await http.post(url);
+  //   if (response.statusCode == 200) {
+  //     return response.body;
+  //   } else {
+  //     throw Exception('Failed to end chat');
+  //   }
+  // }
 }
