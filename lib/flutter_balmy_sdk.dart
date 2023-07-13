@@ -1,7 +1,3 @@
 library flutter_balmy_sdk;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/sdk_function.dart';
