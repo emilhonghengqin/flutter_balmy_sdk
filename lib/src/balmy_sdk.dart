@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 
 // ignore: non_constant_identifier_names
-String domain_name = 'https://tester.balmy.dev';
+String domain_name = 'tester.balmy.dev';
 
 class ApiService {
   static Future<String> getChatId() async {
