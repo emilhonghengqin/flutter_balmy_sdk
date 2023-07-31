@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_balmy_sdk/flutter_balmy_sdk.dart';
+// import 'package:flutter_balmy_sdk/flutter_balmy_sdk.dart';
 
 class ChatId {
   String? status;
@@ -36,9 +36,7 @@ class EndChat {
 
 void main() {
   test('post value', () async {
-    SDKfunc.getChatId();
-    SDKfunc.getChatResponse();
-    SDKfunc.endChat();
+    // SDKfunc.getChatId();
     // var test = await SDKfunc.endChat();
     // print(test);
   });

@@ -8,9 +8,9 @@ import 'package:http/http.dart' as http;
 String domain_name = 'tester.balmy.dev';
 
 class ApiService {
-  static Future<Map<String, dynamic>> getChatId() async {
+  static Future<Map<String, dynamic>> getChatId(Map data) async {
     var url = Uri.https(domain_name, '/api/getChatId');
-    Map data = {"api_id": 101, "api_secret": "malaysia"};
+    // Map data = {"api_id": 101, "api_secret": "malaysia"};
     final http.Response response = await http.post(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -20,14 +20,14 @@ class ApiService {
     return jsonData;
   }
 
-  static Future<Map<String, dynamic>> getChatResponse() async {
+  static Future<Map<String, dynamic>> getChatResponse(Map data) async {
     var url = Uri.https(domain_name, '/api/getChatResponse');
-    Map data = {
-      "api_id": 101,
-      "api_secret": "malaysia",
-      "chat_id": 999,
-      "message": "Hello"
-    };
+    // Map data = {
+    //   "api_id": 101,
+    //   "api_secret": "malaysia",
+    //   "chat_id": 999,
+    //   "message": "Hello"
+    // };
     final http.Response response = await http.post(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -37,9 +37,9 @@ class ApiService {
     return jsonData;
   }
 
-  static Future<Map<String, dynamic>> endChat() async {
+  static Future<Map<String, dynamic>> endChat(Map data) async {
     var url = Uri.https(domain_name, '/api/endChat');
-    Map data = {"api_id": 101, "api_secret": "malaysia", "chat_id": 999};
+    // Map data = {"api_id": 101, "api_secret": "malaysia", "chat_id": 999};
     final http.Response response = await http.post(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

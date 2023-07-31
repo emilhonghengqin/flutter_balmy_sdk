@@ -3,7 +3,7 @@ description: To make a traffic sdk.
 homepage: https://github.com/emilhonghengqin/flutter_balmy_sdk
 repository: https://github.com/emilhonghengqin/flutter_balmy_sdk
 
-version: 0.0.5
+version: 0.0.6
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

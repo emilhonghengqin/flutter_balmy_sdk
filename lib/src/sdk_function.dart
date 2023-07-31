@@ -35,9 +35,9 @@ class EndChat {
 }
 
 class SDKfunc {
-  static Future<String> getChatId() async {
+  static Future<String> getChatId(Map data) async {
     try {
-      Map<String, dynamic> response = await ApiService.getChatId();
+      Map<String, dynamic> response = await ApiService.getChatId(data);
       var testresponse = ChatId.fromJson(response);
       return testresponse.id.toString();
     } catch (e) {
@@ -45,9 +45,9 @@ class SDKfunc {
     }
   }
 
-  static Future<String> getChatResponse() async {
+  static Future<String> getChatResponse(Map data) async {
     try {
-      Map<String, dynamic> response = await ApiService.getChatResponse();
+      Map<String, dynamic> response = await ApiService.getChatResponse(data);
       var testresponse = ChatResponse.fromJson(response);
       return testresponse.response.toString();
     } catch (e) {
@@ -55,9 +55,9 @@ class SDKfunc {
     }
   }
 
-  static Future<String> endChat() async {
+  static Future<String> endChat(Map data) async {
     try {
-      Map<String, dynamic> response = await ApiService.endChat();
+      Map<String, dynamic> response = await ApiService.endChat(data);
       var testresponse = EndChat.fromJson(response);
       return testresponse.status.toString();
     } catch (e) {
